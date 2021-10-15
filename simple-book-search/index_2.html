@@ -12,6 +12,29 @@
   <title>myBOOKSHELF</title>
 </head>
 
+<!--テンプレートにあったからもってきた謎のエリア-->
+<style>
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+.pt-100% {
+  padding-top: 100%;
+}
+
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+</style>
+<!--謎のエリアおわり-->
+
 <body>
   <!-- Load Essential Script -->
   <script src="https://cdn.jsdelivr.net/npm/vue@3.2.11/dist/vue.global.min.js"></script>
@@ -45,6 +68,25 @@
 		  <i class="bi bi-book me-2"></i>
         <strong>myBOOKSHELF</strong>
       </a>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-lg-0">
+
+              <li class="nav-item" data-bs-toggle="modal" data-bs-target="#howtoUse">
+                <a class="nav-link " href="#"><i class="bi bi-patch-question me-1"></i>How to use</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+<!--
  <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,15 +104,19 @@
     </div>
   </div>
 </nav>
+-->
+
     </div>
   </div>
 </header>
 
+<main>
 
   <article class="container">
     <noscript>
       このサービスの利用にはJavaScriptに対応したブラウザが必要です。JavaScriptを有効にして、もう一度お試しください。
     </noscript>
+
     <!-- 検索条件 -->
     <h2 class="visually-hidden">検索フォーム</h2>
     <form id="inputForm" name="searchConditions" class="row g-2 mb-4">
@@ -143,11 +189,14 @@
   <div class="col-12 row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
       <div v-for="item in items" class="col" style="position: relative; min-height: 3em;">
-        <img v-if="item.isbn" v-bind:src="item.thumbnailUrl" alt="" class="w-100"
+        <div class="bd-placeholder-img card-img-top w-100" style="padding-top: 100%; background-image: url(https://iss.ndl.go.jp/thumbnail/9784422311074); background-size: 50% contain; background-repeat: no-repeat; background-position: center;"></div>
+
+<!--        <img v-if="item.isbn" v-bind:src="item.thumbnailUrl" alt="" class="w-100"
         onerror="this.classList.add('invisible')" loading="lazy" />
         <i class="bi bi-book text-secondary"
         style="font-size:2em; position: absolute; top: 0; right: 0; margin-right: 1rem; z-index: -1;">
       </i>
+    -->
     </div>
 
   <!--
@@ -252,6 +301,19 @@ v-bind:onclick="'doSearch(this.innerText);'">{{topic}}</button>
     </div>
   </div>
 </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#"><i class="bi bi-arrow-up me-1"></i>Back to top</a>
+    </p>
+    <p class="mb-1">myBOOKSHELF -本を整理したい人のためのWebサイト-</p>
+    <p class="mb-0">Copyright © 2021 Group C. All Rights Reserved.</p>
+  </div>
+</footer>
+
 
 <script>
 // 検索フォーム（Vue）
@@ -645,6 +707,52 @@ div.introduction {
   }
 }
 </style>
+
+<!--Modal-->
+<div class="modal fade" id="howtoUse" tabindex="-1" aria-labelledby="About" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fs-5" id="exampleModalLabel"><a class="nav-link " href="#"><i class="bi bi-patch-question me-1"></i>How to use</a></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>キーワードをもとに本を検索すると、書影が表示されます。</p>
+        <p>書影をクリックすると書誌情報が表示されます。</p>
+        <h3 class="fs-6">Data Source</h3>
+        <p>以下のAPIを使用しています</p>
+        <ul>
+          <li><a href="https://support.nii.ac.jp/ja/cinii/api/api_outline">CiNii Books</a> : 書誌情報</li>
+          <li><a href="https://iss.ndl.go.jp/information/api">NDL Search</a> : 書影（JPRO）</li>
+          <li><a href="https://opencd.jp">OpenBD</a> : 内容紹介</li>
+          <li><a href="https://webservice.rakuten.co.jp/api/booksbooksearch/">Rakuten Books</a> : レビュー
+          </li>
+        </ul>
+        <p>以下のオープンデータを使用しています</p>
+        <ul>
+          <li><a href="https://id.ndl.go.jp/information/download/">NDLSH</a>(TAB区切りテキスト形式データ)</li>
+        </ul>
+
+       　
+     　
+    　
+    　
+    　<table>
+        <tbody><tr>
+         <td colspan="2"><b>作成者：令和3年度&nbsp;大学図書館員のためのIT総合研修&nbsp;C班</b></td></tr><tr>
+      <td>牛尾&nbsp;響</td><td>国立国会図書館 電子情報部電子情報サービス課</td></tr><tr>
+      <td>福山&nbsp;あゆみ</td><td>神戸市外国語大学 学術情報センターグループ</td></tr>
+     <tr>
+      <td>家方&nbsp;真由美</td><td>愛媛大学 図書館事務課学術情報チーム</td>
+     </tr>
+   </tbody></table>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
 
 <!-- About Modal
 <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="About" aria-hidden="true">
