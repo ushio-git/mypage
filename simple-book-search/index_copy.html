@@ -35,6 +35,7 @@
       </div>
     </div>
   </header>
+
   <article class="container">
     <noscript>
       このサービスの利用にはJavaScriptに対応したブラウザが必要です。JavaScriptを有効にして、もう一度お試しください。
@@ -108,7 +109,7 @@
   </div>
 
   <!-- Results -->
-  <div class="col-12">
+  <div class="col-12 row">
 
       <div v-for="item in items" class="col-3 col-sm-2" style="position: relative; min-height: 3em;">
         <img v-if="item.isbn" v-bind:src="item.thumbnailUrl" alt="" class="w-100"
