@@ -44,13 +44,14 @@
     <form id="inputForm" name="searchConditions" class="row g-2 mb-4">
       <div class="col-12 col-lg-6">
         <div class="form-floating input-group">
-          <input type="text" class="form-control col-8 col-sm-9 col-md-10 col-lg-9" id="keyword"
-            v-bind:value="keyword"></input>
+          <input type="text" class="form-control col-8 col-sm-9 col-md-10 col-lg-9" id="keyword" v-bind:value="keyword"></input>
           <label for="keyword" class="form-label">キーワード</label>
-          <button class="btn btn-outline-secondary col-4 col-sm-3 col-md-2 col-lg-3" type="button" id="button-random"
+     <!--
+        <button class="btn btn-outline-secondary col-4 col-sm-3 col-md-2 col-lg-3" type="button" id="button-random"
             onClick="setRandomKeyword(true);">
             <i class="bi bi-dice-6"></i>おまかせ
           </button>
+        -->
         </div>
       </div>
       </div>
@@ -115,6 +116,7 @@
               style="font-size:2em; position: absolute; top: 0; right: 0; margin-right: 1rem; z-index: -1;">
             </i>
           </div>
+<!--
           <div class="col-9 col-sm-10 align-top">
             <div class="row">
               <h3 class="fs-5 col-12"><a v-bind:href="item.ciniiUrl" class="text-decoration-none">{{item.title}}</a>
@@ -173,6 +175,8 @@
               <small>{{item.introduction}}</small>
             </div>
           </div>
+          -->
+
         </div>
       </div>
       <!-- ページネーション -->
@@ -354,6 +358,7 @@
     }
 
     //おまかせ検索
+    /*
     let keywordJson = null
     async function setRandomKeyword(go = false) {
       const keywordUrl = "./keyword.json";
@@ -367,6 +372,7 @@
         doSearch(keyword);
       }
     };
+    */
 
     // 検索機能本体
     async function doSearch(keyword = null, from = null, to = null, p = 1) {
