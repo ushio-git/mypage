@@ -106,16 +106,24 @@
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
+
       <!-- Results -->
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+      <!--
       <div class="col-12">
         <div v-for="item in items" class="mb-4 row">
           <div class="col-3 col-sm-2" style="position: relative; min-height: 3em;">
+      -->
+      <div class="col">
             <img v-if="item.isbn" v-bind:src="item.thumbnailUrl" alt="" class="w-100"
               onerror="this.classList.add('invisible')" loading="lazy" />
             <i class="bi bi-book text-secondary"
               style="font-size:2em; position: absolute; top: 0; right: 0; margin-right: 1rem; z-index: -1;">
             </i>
           </div>
+        <div>
 <!--
           <div class="col-9 col-sm-10 align-top">
             <div class="row">
